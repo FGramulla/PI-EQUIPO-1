@@ -14,6 +14,8 @@ import {
   ButtonLoggout,
 } from "./header.style";
 
+import Categories from "../../modules/Categories";
+
 import logo from "../../assets/alquicancha.png";
 import burguerLogo from "../../assets/logoBurguer.png";
 import { Link } from "react-router-dom";
@@ -56,6 +58,8 @@ const Header = () => {
         </LogoWrapper>
       </Link>
 
+      <Categories />
+      
       <div>
         {logged ? (
           <LetterContainer onClick={handleLogoClick}>

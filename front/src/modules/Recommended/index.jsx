@@ -24,9 +24,11 @@ const Recommended = () => {
     <>
       <TitleSeccion>Productos recomendados</TitleSeccion>    
       <RecommendedWrapper>
+        <div class= "scrollVertical">
           {productsToShow && productsToShow.map((product, index)=>(
             <ProductCard key={index} product={product}/>
           ))}
+          </div>
       </RecommendedWrapper>
     </>
   )

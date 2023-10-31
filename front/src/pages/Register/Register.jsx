@@ -18,9 +18,6 @@ const Register = () => {
     <>
       <form action="">
         <LoginWrapper>
-          <ImagenPerfil>
-            <img src="/src/assets/Male User.png" alt="user" />
-          </ImagenPerfil>
 
           <Label>Nombre</Label>
           <Inputs type="text" required placeholder="Ingresa tú nombre" />
@@ -33,13 +30,6 @@ const Register = () => {
 
           <Label>Confirmar password</Label>
           <Inputs type="password" required placeholder="Repite la contraseña" autoComplete="on"/>
-
-          <Remember>
-            <div>
-              <InputCheckBox type="checkbox" />
-              <span>Recordarme </span>
-            </div>
-          </Remember>
 
           <Button>Registrarme</Button>
         </LoginWrapper>

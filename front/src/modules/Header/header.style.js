@@ -4,7 +4,7 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   background-color: var(--color-lightGreen);
   min-height: 100px;
-  height: 100px;
+  height: 130px;
   box-shadow: 0px 4px 4px 0px rgba(100, 100, 100, 0.5);
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ export const LogoWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 600px) {
+  @media (max-width: 1000px) {
     padding: 0;
   }
 `;
@@ -47,14 +47,18 @@ export const LogoTitle = styled.p`
   font-weight: bold;
   line-height: 1;
 
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     font-size: 0.8rem;
+  }
+
+  @media (max-width: 1000px) {
+    display: none;
   }
 `;
 
 export const LoginRegister = styled.div`
   display: flex;
-  margin-right: 32px;
+  margin-left: 20px;
 
   @media (max-width: 600px) {
     display: none;
