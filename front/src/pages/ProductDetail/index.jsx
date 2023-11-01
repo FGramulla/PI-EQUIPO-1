@@ -14,6 +14,7 @@ import {
   ButtonReserva,
   Included,
   Price,
+  SubCategories
 } from "./ProdcutDetail.style";
 import { useParams } from "react-router";
 import { getProductById } from "../../services/product";
@@ -62,7 +63,7 @@ const ProductDetail = () => {
     return <p>Cargando...</p>;
   }
 
-  const { images, title, dayPrice, description, details } = product;
+  const { images, title ,dayPrice, description, subCategories, details } = product;
 
   const handleSecondaryImageClick = (index) => {
     if (selected !== index) {
@@ -111,6 +112,7 @@ const ProductDetail = () => {
 
           <ProductDetails>
             <TextDetails>{description}</TextDetails>
+            <SubCategories>{subCategories}</SubCategories>
             <Price>$ {dayPrice} x día</Price>
             {details.length ? (
               <Caracteristicas>

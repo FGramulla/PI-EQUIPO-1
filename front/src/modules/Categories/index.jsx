@@ -1,6 +1,6 @@
 import mockCategories from "../../mocks/categories.json";
 import { CategoriesWrapper } from "./categories.style";
-import Card from "./modules/Card";
+import Card from "./modules/card";
 
 const Categories = () => {
   return (

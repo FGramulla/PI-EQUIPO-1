@@ -25,7 +25,8 @@
       }
   ],
     "description": "Cancha de futbol 7 exterior, pasto natural, totalmente cercada ",
-    "dayPrice" : 20000,
+    "subCategories": "Fútbol",
+    "dayPrice" : 21000,
     "availability":{
       "isAbalible": true,
       "dateStart": "",
@@ -67,6 +68,7 @@
       }
     ],
     "description": "Cancha de futbol 7 exterior, pasto sintetico, totalmente cercada ",
+    "subCategories": "Fútbol",
     "dayPrice" : 18000,
     "availability":{
       "isAbalible": true,
@@ -109,6 +111,7 @@
       }
     ],
     "description": "Cancha de futbol 7 techada, pasto sintetico",
+    "subCategories": "Fútbol",
     "dayPrice" : 28000,
     "availability":{
       "isAbalible": true,
@@ -154,6 +157,7 @@
       }
     ],
     "description": "Cancha de futbol 11, exterior, pasto natural, totalmente iluminada",
+    "subCategories": "Fútbol",
     "dayPrice" : 38000,
     "availability":{
       "isAbalible": true,
@@ -193,6 +197,7 @@
       }
     ],
     "description": "Cancha de futbol 11, exterior, pasto sintetico, totalmente iluminada y cercada, cuenta con tribuna para 100 personas",
+    "subCategories": "Fútbol",
     "dayPrice" : 43000,
     "availability":{
       "isAbalible": true,
@@ -238,6 +243,7 @@
       }
     ], 
     "description": "Cancha de futbol 11, techada, pasto sintetico",
+    "subCategories": "Fútbol",
     "dayPrice" : 46000,
     "availability":{
       "isAbalible": true,
@@ -280,6 +286,7 @@
       }
     ],
     "description": "Cancha de basketball exterior, cercada e iluminación",
+    "subCategories": "Basket",
     "dayPrice" : 36000,
     "availability":{
       "isAbalible": true,
@@ -315,6 +322,7 @@
       }
     ],
     "description": "Cancha de basketball techada, palcos para 300 personas",
+    "subCategories": "Basket",
     "dayPrice" : 56000,
     "availability":{
       "isAbalible": true,
@@ -363,6 +371,7 @@
       }
     ],
     "description": "Cancha de voley exterior",
+    "subCategories": "Voley",
     "dayPrice" : 23000,
     "availability":{
       "isAbalible": true,
@@ -405,6 +414,7 @@
       }
     ],
     "description": "Cancha de Voley playa, arena 100% natural",
+    "subCategories": "Voley",
     "dayPrice" : 36000,
     "availability":{
       "isAbalible": true,
@@ -453,6 +463,7 @@
       }
     ],
     "description": "Cancha de voley techada, palco para 500 personas. Ideal competencias internacionales",
+    "subCategories": "Voley",
     "dayPrice" : 66000,
     "availability":{
       "isAbalible": true,
@@ -498,6 +509,7 @@
       }
     ],
     "description": "Cancha de multihuso",
+    "subCategories": "Multiuso",
     "dayPrice" : 49000,
     "availability":{
       "isAbalible": true,
