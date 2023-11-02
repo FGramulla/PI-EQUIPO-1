@@ -17,7 +17,6 @@ import {
 } from "./ProdcutDetail.style";
 import { useParams } from "react-router";
 import { getProductById } from "../../services/product";
-import flecha from "../../assets/flecha.png";
 import { Link } from "react-router-dom";
 import Modal from 'react-modal';
 import ImageModal from "./modules/ImageModal";
@@ -40,7 +39,6 @@ const customStyles = {
 
 const ProductDetail = () => {
   const { id } = useParams();
-
   const [product, setProduct] = useState(null);
   const [imagePrincipal, setImagePrincipal] = useState(null);
   const [selected, setSelected] = useState(0);
@@ -62,7 +60,7 @@ const ProductDetail = () => {
     return <p>Cargando...</p>;
   }
 
-  const { images, title, dayPrice, description, details } = product;
+  const { images, title, dayPrice, description, subCategories, details } = product;
 
   const handleSecondaryImageClick = (index) => {
     if (selected !== index) {
@@ -84,11 +82,10 @@ const ProductDetail = () => {
     <Detail>
       <CardDetail>
         <Header>
-          <Title>{title}</Title>
           <Link to={"/"}>
-            <img src={flecha} alt="flecha" />
             Volver
           </Link>
+          <Title>{title}</Title>          
         </Header>
         <Body>
           <Images>
@@ -111,6 +108,7 @@ const ProductDetail = () => {
 
           <ProductDetails>
             <TextDetails>{description}</TextDetails>
+            <TextDetails>{subCategories}</TextDetails>
             <Price>$ {dayPrice} x día</Price>
             {details.length ? (
               <Caracteristicas>

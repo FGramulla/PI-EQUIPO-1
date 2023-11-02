@@ -41,21 +41,11 @@ export const Inputs = styled.input`
 
 `;
 
-export const ImagenPerfil = styled.div`
-  display: flex;
-  width: 90px;
-  height: 90px;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-`;
-
-export const Remember = styled.div`
+export const SoyAdmin = styled.div`
   font-size: 15px;
+  font-weight: 600;
   margin: 15px 0;
-  color: brown;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-self: flex-start;

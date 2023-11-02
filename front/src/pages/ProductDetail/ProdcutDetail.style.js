@@ -18,7 +18,8 @@ export const CardDetail = styled.div`
 `;
 
 export const Header = styled.div`
-  width: 100%;
+  width: 80%;
+  margin-left: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;

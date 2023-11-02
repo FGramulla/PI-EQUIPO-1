@@ -3,8 +3,7 @@ import {
   Label,
   LoginWrapper,
   Inputs,
-  Remember,
-  ImagenPerfil,
+  SoyAdmin,
   Button,
   InputCheckBox,
 } from "./register.style";
@@ -18,9 +17,6 @@ const Register = () => {
     <>
       <form action="">
         <LoginWrapper>
-          <ImagenPerfil>
-            <img src="/src/assets/Male User.png" alt="user" />
-          </ImagenPerfil>
 
           <Label>Nombre</Label>
           <Inputs type="text" required placeholder="Ingresa tú nombre" />
@@ -33,14 +29,14 @@ const Register = () => {
 
           <Label>Confirmar password</Label>
           <Inputs type="password" required placeholder="Repite la contraseña" autoComplete="on"/>
-
-          <Remember>
+          
+          <SoyAdmin>
             <div>
               <InputCheckBox type="checkbox" />
-              <span>Recordarme </span>
+              <span>Soy administrador </span>
             </div>
-          </Remember>
-
+          </SoyAdmin>
+        
           <Button>Registrarme</Button>
         </LoginWrapper>
       </form>

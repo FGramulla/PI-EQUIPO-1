@@ -162,7 +162,7 @@ const Login = () => {
               <Button1>Crear una nueva cuenta</Button1>
             </Link>
             <Link to={"/"}>
-              <Button1>Olvide mi contraseña</Button1>
+              <Button1>Olvidé mi contraseña</Button1>
             </Link>
           </ButtonsContainer>
         </LoginWrapper>

@@ -26,7 +26,7 @@ export const LogoWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 600px) {
+  @media (max-width: 1000px) {
     padding: 0;
   }
 `;
@@ -47,14 +47,18 @@ export const LogoTitle = styled.p`
   font-weight: bold;
   line-height: 1;
 
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     font-size: 0.8rem;
+  }
+
+  @media (max-width: 1000px) {
+    display: none;
   }
 `;
 
 export const LoginRegister = styled.div`
   display: flex;
-  margin-right: 32px;
+  margin-left: 20px;
 
   @media (max-width: 600px) {
     display: none;
