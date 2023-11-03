@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
+  
   height: 310px;
   width: 450px;
+  margin: auto;
   background-color: rgba(225, 225, 225, 0.7);
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -19,6 +21,7 @@ export const CardContainer = styled.div`
 
   @media (max-width: 500px) {
     width: 90%;
+    margin: auto;
   }
 `;
 

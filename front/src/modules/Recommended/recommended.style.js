@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const TitleSeccion = styled.h2`
-  margin-top: 20px;
-  margin-bottom: -12px;
+  margin: auto
+  padding: 30px 30px;
   color: white;
   font-size: 28px;
   font-weight: 700;
@@ -12,56 +12,55 @@ export const TitleSeccion = styled.h2`
 export const RecommendedWrapper = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 32px;
-  padding: 10px 0px 100px 0px;
+  
 
-  @media(max-width: 950px){
-    justify-content: center;
-    text-align:left;
+  @media(max-width: 1000px){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scrollVertical{
+    width: 100%;
+    height: 315px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: scroll;
     
-  }
-
-  .scrollVertical{
-    width: 100%;
+   }
+  
+   @media(max-width: 800px){
+    width: 90%;
+    max-height: 60vh;
+    margin: auto
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 8px;
-    flex-wrap: wrap;
-    gap: 32px;
-    padding: -20px 0px 100px 0px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 315px;
-   }
-  
-   @media(max-width: 950px){
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    text-align:center;
-    flex-wrap: wrap;
-  }
-
-  .scrollVertical{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    flex-wrap: wrap;
-    gap: 32px;
-    padding: -20px 0px 100px 0px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 315px;
-   }
-  
-   @media(max-width: 950px){
-    justify-content: center;
+    flex-direction: column;
+    &::-webkit-scrollbar {
+      width: 6px;
+      }
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: ${({ theme }) => (theme === 'light' ? '#ddd' : '#5c5b5e')};
+          border-radius: 10px;
+          }
+          
  
   }
 `;
