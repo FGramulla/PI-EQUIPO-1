@@ -157,9 +157,16 @@ export const TextDetails = styled.p`
 `;
 
 export const SubCategories = styled.p`
+<<<<<<< HEAD
   font-size: 20px;
   margin: 0;
   padding-bottom: 12px;
+=======
+  font-size: 24px;
+  margin: 0;
+  padding-bottom: 12px;
+  color: red;
+>>>>>>> b48d647a3a64b10c628ce2d600e0ce298085071f
 
   @media (max-width: 1024px) {
     font-size: 18px;

@@ -15,6 +15,7 @@ import {
   ButtonReserva,
   Included,
   Price,
+  SubCategories
 } from "./ProdcutDetail.style";
 import { useParams } from "react-router";
 import { getProductById } from "../../services/product";

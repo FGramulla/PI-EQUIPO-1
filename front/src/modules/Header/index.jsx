@@ -14,6 +14,8 @@ import {
   ButtonLoggout,
 } from "./header.style";
 
+import Categories from "../../modules/Categories";
+
 import logo from "../../assets/alquicancha.png";
 import burguerLogo from "../../assets/logoBurguer.png";
 import { Link } from "react-router-dom";
@@ -55,6 +57,11 @@ const Header = () => {
           </TitleWrapper>
         </LogoWrapper>
       </Link>
+<<<<<<< HEAD
+=======
+
+      <Categories />
+>>>>>>> b48d647a3a64b10c628ce2d600e0ce298085071f
       
       <div>
         {logged ? (

@@ -45,4 +45,23 @@ export const RecommendedWrapper = styled.div`
     text-align:center;
     flex-wrap: wrap;
   }
+
+  .scrollVertical{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: -20px 0px 100px 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 315px;
+   }
+  
+   @media(max-width: 950px){
+    justify-content: center;
+ 
+  }
 `;

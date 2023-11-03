@@ -4,7 +4,7 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   background-color: var(--color-lightGreen);
   min-height: 100px;
-  height: 100px;
+  height: 130px;
   box-shadow: 0px 4px 4px 0px rgba(100, 100, 100, 0.5);
   display: flex;
   align-items: center;
