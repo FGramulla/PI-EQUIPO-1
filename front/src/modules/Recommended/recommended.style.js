@@ -20,6 +20,8 @@ export const RecommendedWrapper = styled.div`
 
   @media(max-width: 950px){
     justify-content: center;
+    text-align:left;
+    
   }
 
   .scrollVertical{
@@ -37,7 +39,10 @@ export const RecommendedWrapper = styled.div`
    }
   
    @media(max-width: 950px){
+    width: 100%;
+    display: flex;
     justify-content: center;
- 
+    text-align:center;
+    flex-wrap: wrap;
   }
 `;

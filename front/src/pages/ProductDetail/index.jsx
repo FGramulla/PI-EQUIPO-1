@@ -10,6 +10,7 @@ import {
   Body,
   ProductDetails,
   TextDetails,
+  SubCategories,
   Caracteristicas,
   ButtonReserva,
   Included,
@@ -28,7 +29,6 @@ const customStyles = {
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     width: '100%',
     maxWidth: '1000px',
@@ -108,7 +108,7 @@ const ProductDetail = () => {
 
           <ProductDetails>
             <TextDetails>{description}</TextDetails>
-            <TextDetails>{subCategories}</TextDetails>
+            <SubCategories>Categoría: {subCategories}</SubCategories>
             <Price>$ {dayPrice} x día</Price>
             {details.length ? (
               <Caracteristicas>

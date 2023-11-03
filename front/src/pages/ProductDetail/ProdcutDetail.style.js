@@ -30,7 +30,7 @@ export const Header = styled.div`
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 700px;
     font-size: 18px;
 
     @media (max-width: 750px) {
@@ -139,7 +139,7 @@ export const ProductDetails = styled.div`
   justify-content: space-between;
   min-height: 100%;
   width: 50%;
-  padding: 0 14px;
+  padding: 14px, 14px;
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -148,6 +148,16 @@ export const ProductDetails = styled.div`
 
 export const TextDetails = styled.p`
   font-size: 24px;
+  margin: 0;
+  padding-bottom: 12px;
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+`;
+
+export const SubCategories = styled.p`
+  font-size: 20px;
   margin: 0;
   padding-bottom: 12px;
 
