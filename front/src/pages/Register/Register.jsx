@@ -29,7 +29,6 @@ const Register = () => {
 
           <Label>Confirmar password</Label>
           <Inputs type="password" required placeholder="Repite la contraseña" autoComplete="on"/>
-<<<<<<< HEAD
           
           <SoyAdmin>
             <div>
@@ -38,9 +37,6 @@ const Register = () => {
             </div>
           </SoyAdmin>
         
-=======
-
->>>>>>> b48d647a3a64b10c628ce2d600e0ce298085071f
           <Button>Registrarme</Button>
         </LoginWrapper>
       </form>

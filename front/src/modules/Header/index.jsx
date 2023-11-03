@@ -57,11 +57,6 @@ const Header = () => {
           </TitleWrapper>
         </LogoWrapper>
       </Link>
-<<<<<<< HEAD
-=======
-
-      <Categories />
->>>>>>> b48d647a3a64b10c628ce2d600e0ce298085071f
       
       <div>
         {logged ? (

@@ -23,6 +23,7 @@ const Home = () => {
     <>
     <HomeWrapper>
       <Search />
+      <Categories />
       <Recommended />
     </HomeWrapper>
     </>
