@@ -14,15 +14,25 @@ import {
   ButtonLoggout,
 } from "./header.style";
 
-import Categories from "../../modules/Categories";
 
 import logo from "../../assets/alquicancha.png";
-import burguerLogo from "../../assets/logoBurguer.png";
+
 import { Link } from "react-router-dom";
 import useScrollDetector from "../../hooks/useScrollDetector";
 import { ContextGlobal } from "../../context/context";
+import MenuButton from "../MenuBurger/menuBurger";
+import Navbar from "../MenuBurger/navbar";
+
 
 const Header = () => {
+
+  
+    const [open, setOpen] = useState(false);
+  
+    const handleClick = () => {
+      setOpen(!open);
+    }
+   
   const { isAdmin, logged, user, logout } = useContext(ContextGlobal).contextValue;
 
   const scrolledDown = useScrollDetector();
@@ -76,7 +86,10 @@ const Header = () => {
               </Login>
             </LoginRegister>
             <LoginRegisterMenu>
-              <img src={burguerLogo} alt="logoBurguer" />
+                             
+            <Navbar open={open} />
+            <MenuButton open={open} handleClick={handleClick} />      
+                        
             </LoginRegisterMenu>
           </>
         )}
