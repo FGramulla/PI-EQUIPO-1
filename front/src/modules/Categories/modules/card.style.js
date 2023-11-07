@@ -5,8 +5,8 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 80px;
-  height: 95px;
+  width: 75px;
+  height: 90px;
   background-color: var(--color-orange);
   box-shadow: -2px 4px 8px 1px rgba(0, 0, 0, 0.62);
   border-radius: 8px;
@@ -27,10 +27,10 @@ export const CardWrapper = styled.div`
   }
 
   .imgContainer {
-    min-height: 70%;
+    min-height: 60%;
 
     img {
-      width: 64px;
+      width: 60px;
       height: auto;
     }
   }

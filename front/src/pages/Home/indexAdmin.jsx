@@ -1,7 +1,10 @@
 import { useEffect } from "react";
+import Categories from "../../modules/Categories";
 import Recommended from "../../modules/Recommended";
-import { HomeWrapper, Publicidades } from "./home.style";
+import Search from "../../modules/Search";
+import { HomeWrapper, Publicidades } from "./homeUser.style";
 import { getFromLocalStorage } from "../../mocks/initLocalStorage";
+import Dashboard from "../Dashboard/index";
 
 const Home = () => {
   
@@ -20,6 +23,9 @@ const Home = () => {
   return (
     <>
     <HomeWrapper>
+      <Search />
+      <Categories />
+      <Dashboard />
       <Recommended />
       <Publicidades />
     </HomeWrapper>

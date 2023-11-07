@@ -4,6 +4,7 @@ import { getRandomElements } from "../../utils/get-random-elements"
 import { getAllProducts } from "../../services/product"
 import { useEffect, useState } from "react"
 
+
 const Recommended = () => {
 
   const [productsToShow, setProductsToShow] = useState(null);

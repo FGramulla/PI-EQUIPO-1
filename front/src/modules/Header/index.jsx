@@ -64,7 +64,7 @@ const Header = () => {
           </TitleWrapper>
         </LogoWrapper>
       </Link>
-      
+          
       <div>
         {logged ? (
           <LetterContainer onClick={handleLogoClick}>
