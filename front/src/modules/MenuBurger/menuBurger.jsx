@@ -1,16 +1,7 @@
 import React from "react";
 import burguerLogo from "../../assets/logoBurguer.png";
-// import { MenuButtonWrapper } from "../MenuBurger/menuBurger.style"
-import styled from "styled-components";
+import { MenuButtonWrapper } from "./menuBurger.style"
 
-const MenuButtonWrapper = styled.button`
-  border: none;
-  background-color: rgba(0,0,0,0);
-
-  @media only screen and (min-width: 624px) {
-    display: none;
-  }
-`;
 
 function MenuButton({ open, handleClick }) {
   return !open ? (
