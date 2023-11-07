@@ -27,7 +27,7 @@ export const RecommendedWrapper = styled.div`
 
   .scrollVertical{
     width: 100%;
-    height: 315px;
+    height: 310px;
     display: flex;
     justify-content: space-between;
     align-items: center;

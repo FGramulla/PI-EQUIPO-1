@@ -13,15 +13,12 @@ import {
   LetterContainer,
   ButtonLoggout,
 } from "./header.style";
-
-
 import logo from "../../assets/alquicancha.png";
-
 import { Link } from "react-router-dom";
 import useScrollDetector from "../../hooks/useScrollDetector";
 import { ContextGlobal } from "../../context/context";
 import MenuButton from "../MenuBurger/menuBurger";
-import Navbar from "../MenuBurger/navbar";
+import NavBar from "../MenuBurger/navBar";
 
 
 const Header = () => {
@@ -87,7 +84,7 @@ const Header = () => {
             </LoginRegister>
             <LoginRegisterMenu>
                              
-            <Navbar open={open} />
+            <NavBar open={open} />
             <MenuButton open={open} handleClick={handleClick} />      
                         
             </LoginRegisterMenu>

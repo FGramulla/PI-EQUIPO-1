@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterWrapper = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: auto;
   width: 100%;
   min-height: 80px;
   background: linear-gradient(180deg, rgba(74, 87, 0, 0) 0%, #4a5700 97.92%),

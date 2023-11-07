@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const NavbarWrapper = styled.nav`
+export const NavBarWrapper = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: left;
   background-color: rgba(0,0,0,0.7);
   position: fixed;
-  top: 10vh;
+  top: 100px;
   right: ${props => (props.open ? "0" : "-100%")};
   width: 40%;
   height: auto;
