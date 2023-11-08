@@ -89,7 +89,7 @@ export const Register = styled.div`
 
 export const LoginRegisterMenu = styled.div`
   display: none;
-
+  
   @media (max-width: 600px) {
     display: flex;
     height: 30px;

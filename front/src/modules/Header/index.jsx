@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 import useScrollDetector from "../../hooks/useScrollDetector";
 import { ContextGlobal } from "../../context/context";
 import MenuButton from "../MenuBurger/menuBurger";
-import NavBar from "../MenuBurger/navBar";
+import NavBar from "../MenuBurger/navbar";
 
 
 const Header = () => {
@@ -34,7 +34,8 @@ const Header = () => {
 
   const scrolledDown = useScrollDetector();
   const [initials, setInitials] = useState("");
-  
+
+
   useEffect(()=>{
     if(user){
       const primerasLetras = Object.values(user).map(valor => valor[0]);
@@ -44,8 +45,8 @@ const Header = () => {
   },[user])
 
   const handleLogoClick = ()=>{
-    console.log('Aqui debe mostrarse menu para cerrar sesión o ir a conf');
-  }
+    setOpen(!open);
+  };
 
   const handleExit = ()=>{
     logout();
@@ -71,6 +72,7 @@ const Header = () => {
             <LetterAvatar>{initials}</LetterAvatar>
             {isAdmin && <p>Administrador</p>}
             <ButtonLoggout onClick={handleExit}>Salir</ButtonLoggout>
+            <NavBar open = {open}></NavBar>
           </LetterContainer>
         ) : (
           <>
@@ -83,7 +85,6 @@ const Header = () => {
               </Login>
             </LoginRegister>
             <LoginRegisterMenu>
-                             
             <NavBar open={open} />
             <MenuButton open={open} handleClick={handleClick} />      
                         

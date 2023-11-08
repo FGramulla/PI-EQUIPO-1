@@ -10,5 +10,5 @@ export const getAllCategories = async ()=>{
 export const getCategoryById = async (id) =>{
   const categories = await getAllCategories();
   return categories.find(category => category.id === parseInt(id));
-}
+};
 

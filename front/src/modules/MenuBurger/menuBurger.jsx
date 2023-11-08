@@ -1,7 +1,7 @@
 import React from "react";
 import burguerLogo from "../../assets/logoBurguer.png";
-import { MenuButtonWrapper } from "./menuBurger.style"
-
+import { MenuButtonWrapper, ButtonClose } from "./menuBurger.style"
+import { AiOutlineClose } from "react-icons/ai";
 
 function MenuButton({ open, handleClick }) {
   return !open ? (
@@ -10,7 +10,7 @@ function MenuButton({ open, handleClick }) {
     </MenuButtonWrapper>
   ) : (
     <MenuButtonWrapper onClick={handleClick}>
-      <img src={burguerLogo} alt="logoBurguer" width="30" height="30"/>    
+      <ButtonClose><AiOutlineClose></AiOutlineClose></ButtonClose>
     </MenuButtonWrapper>
   );
 }

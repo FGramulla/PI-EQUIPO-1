@@ -3,7 +3,8 @@ import { NavBarWrapper } from "./navBar.style";
 import { Link } from "react-router-dom";
 
 
-function NavBar({ open }) {
+function NavBarUser(props) {
+  const {open} = props
   return (
     <NavBarWrapper open={open}>
       <a href="#"><Link to={"/"}>Link 1</Link></a>
@@ -12,4 +13,4 @@ function NavBar({ open }) {
   );
 }
 
-export default NavBar;
+export default NavBarUser;

@@ -33,3 +33,5 @@ export const NavBarWrapper = styled.nav`
     text-align: left;    
     }
 `;
+
+

@@ -24,19 +24,6 @@ export const RecommendedWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-
-  .scrollVertical{
-    width: 100%;
-    height: 310px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    flex-wrap: wrap;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    
-   }
   
    @media(max-width: 800px){
     width: 90%;
