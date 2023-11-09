@@ -20,6 +20,8 @@ import { ContextGlobal } from "../../context/context";
 import MenuButton from "../MenuBurger/menuBurger";
 import NavBar from "../MenuBurger/navbar";
 
+import Logger from "../Logger/logger"
+
 
 const Header = () => {
   
@@ -62,21 +64,23 @@ const Header = () => {
           </TitleWrapper>
         </LogoWrapper>
       </Link>
-          
+      
+      <Logger />
+
       <div>
         { logged ?  (
-              <>
-                <Link to={"/administracion"}>
+              <><Link to={"/administracion"}>
                 <LetterContainer onClick={handleLogoClick}>
                 <LetterAvatar>{initials}</LetterAvatar>
                   {isAdmin && <p>Administrador</p>}
                   <ButtonLoggout onClick={handleExit}>Salir</ButtonLoggout>
                   <NavBar open = {open}></NavBar>
-                </LetterContainer></Link>
+                </LetterContainer>
+                </Link>
               </>  
         ) : (           
               <>                
-                  <LoginRegister open = {! logged}>
+                  <LoginRegister logged = {!open}>
                     <Register>
                       <Link to={"/register"}>Crear Cuenta</Link>
                     </Register>
@@ -85,7 +89,7 @@ const Header = () => {
                     </Login>
                   </LoginRegister>
                   <LoginRegisterMenu>
-                    <NavBar open={open} />
+                    <NavBar open={!open} />
                     <MenuButton open={open} handleClick={handleClick} />                            
                   </LoginRegisterMenu>               
               </>          
