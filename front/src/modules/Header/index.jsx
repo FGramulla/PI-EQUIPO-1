@@ -22,7 +22,6 @@ import NavBar from "../MenuBurger/navbar";
 
 
 const Header = () => {
-
   
     const [open, setOpen] = useState(false);
   
@@ -53,9 +52,7 @@ const Header = () => {
   }
 
   return (
-    <HeaderWrapper
-      style={{ backgroundColor: scrolledDown ? "rgb(155, 191, 13)" : "" }}
-    >
+    <HeaderWrapper style={{ backgroundColor: scrolledDown ? "rgb(155, 191, 13)" : "" }}>
       <Link to={"/"}>
         <LogoWrapper>
           <Logo src={logo} alt="" />
@@ -67,30 +64,32 @@ const Header = () => {
       </Link>
           
       <div>
-        {logged ? (
-          <LetterContainer onClick={handleLogoClick}>
-            <LetterAvatar>{initials}</LetterAvatar>
-            {isAdmin && <p>Administrador</p>}
-            <ButtonLoggout onClick={handleExit}>Salir</ButtonLoggout>
-            <NavBar open = {open}></NavBar>
-          </LetterContainer>
-        ) : (
-          <>
-            <LoginRegister>
-              <Register>
-                <Link to={"/register"}>Crear Cuenta</Link>
-              </Register>
-              <Login>
-                <Link to={"/login"}>Iniciar sesión</Link>
-              </Login>
-            </LoginRegister>
-            <LoginRegisterMenu>
-            <NavBar open={open} />
-            <MenuButton open={open} handleClick={handleClick} />      
-                        
-            </LoginRegisterMenu>
-          </>
-        )}
+        { logged ?  (
+              <>
+                <Link to={"/administracion"}>
+                <LetterContainer onClick={handleLogoClick}>
+                <LetterAvatar>{initials}</LetterAvatar>
+                  {isAdmin && <p>Administrador</p>}
+                  <ButtonLoggout onClick={handleExit}>Salir</ButtonLoggout>
+                  <NavBar open = {open}></NavBar>
+                </LetterContainer></Link>
+              </>  
+        ) : (           
+              <>                
+                  <LoginRegister open = {! logged}>
+                    <Register>
+                      <Link to={"/register"}>Crear Cuenta</Link>
+                    </Register>
+                    <Login>
+                      <Link to={"/login"}>Iniciar sesión</Link>
+                    </Login>
+                  </LoginRegister>
+                  <LoginRegisterMenu>
+                    <NavBar open={open} />
+                    <MenuButton open={open} handleClick={handleClick} />                            
+                  </LoginRegisterMenu>               
+              </>          
+          )}
       </div>
     </HeaderWrapper>
   );

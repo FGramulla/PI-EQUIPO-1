@@ -10,7 +10,9 @@ function MenuButton({ open, handleClick }) {
     </MenuButtonWrapper>
   ) : (
     <MenuButtonWrapper onClick={handleClick}>
-      <ButtonClose><AiOutlineClose></AiOutlineClose></ButtonClose>
+      <ButtonClose> 
+        <AiOutlineClose /> 
+      </ButtonClose>
     </MenuButtonWrapper>
   );
 }
