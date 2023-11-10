@@ -13,48 +13,48 @@ import {
   LetterContainer,
   ButtonLoggout,
 } from "./header.style";
+
+import {NavBar} from "../MenuBurger/navbar";
+import {MenuButton} from "../MenuBurger/menuBurger";
 import logo from "../../assets/alquicancha.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useScrollDetector from "../../hooks/useScrollDetector";
 import { ContextGlobal } from "../../context/context";
-import MenuButton from "../MenuBurger/menuBurger";
-import NavBar from "../MenuBurger/navbar";
-
-import Logger from "../Logger/logger"
-
 
 const Header = () => {
   
-    const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+  }
   
-    const handleClick = () => {
-      setOpen(!open);
-    }
-   
   const { isAdmin, logged, user, logout } = useContext(ContextGlobal).contextValue;
+  
+  const navigate = useNavigate();
 
   const scrolledDown = useScrollDetector();
   const [initials, setInitials] = useState("");
-
-
+  
   useEffect(()=>{
     if(user){
       const primerasLetras = Object.values(user).map(valor => valor[0]);
       const resultado = primerasLetras.join('');
-      setInitials(resultado);
+      setInitials(resultado.toUpperCase());
     }
   },[user])
 
   const handleLogoClick = ()=>{
-    setOpen(!open);
-  };
+    console.log('Aqui debe mostrarse menu para cerrar sesión o ir a conf');
+  }
 
   const handleExit = ()=>{
     logout();
+    navigate("/");
   }
 
   return (
-    <HeaderWrapper style={{ backgroundColor: scrolledDown ? "rgb(155, 191, 13)" : "" }}>
+    <HeaderWrapper
+      style={{ backgroundColor: scrolledDown ? "rgb(155, 191, 13)" : "" }}
+    >
       <Link to={"/"}>
         <LogoWrapper>
           <Logo src={logo} alt="" />
@@ -64,39 +64,38 @@ const Header = () => {
           </TitleWrapper>
         </LogoWrapper>
       </Link>
-      
-      <Logger />
 
       <div>
-        { logged ?  (
-              <><Link to={"/administracion"}>
-                <LetterContainer onClick={handleLogoClick}>
-                <LetterAvatar>{initials}</LetterAvatar>
-                  {isAdmin && <p>Administrador</p>}
-                  <ButtonLoggout onClick={handleExit}>Salir</ButtonLoggout>
-                  <NavBar open = {open}></NavBar>
-                </LetterContainer>
-                </Link>
-              </>  
-        ) : (           
-              <>                
-                  <LoginRegister logged = {!open}>
-                    <Register>
-                      <Link to={"/register"}>Crear Cuenta</Link>
-                    </Register>
-                    <Login>
-                      <Link to={"/login"}>Iniciar sesión</Link>
-                    </Login>
-                  </LoginRegister>
-                  <LoginRegisterMenu>
-                    <NavBar open={!open} />
-                    <MenuButton open={open} handleClick={handleClick} />                            
-                  </LoginRegisterMenu>               
-              </>          
-          )}
+        {logged ? (
+          <LetterContainer onClick={handleLogoClick}>
+            <LetterAvatar>{initials}</LetterAvatar>
+            {isAdmin && <p>Administrador</p>}
+            <ButtonLoggout onClick={handleExit}>Salir</ButtonLoggout>
+            <NavBar open = {open} />
+          </LetterContainer>
+        ) : (
+          <>                
+            <LoginRegister logged = {!open}>
+              <Register>
+                <Link to={"/register"}>Crear Cuenta</Link>
+              </Register>
+              <Login>
+                <Link to={"/login"}>Iniciar sesión</Link>
+              </Login>
+            </LoginRegister>
+            {/* <LoginRegisterMenu>
+              <NavBar open={!open} />
+              <MenuButton open={open} handleClick={handleClick} />                            
+            </LoginRegisterMenu>                */}
+          </>
+        )}
       </div>
     </HeaderWrapper>
   );
 };
 
 export default Header;
+
+    
+               
+         
