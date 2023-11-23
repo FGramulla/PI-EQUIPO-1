@@ -3,13 +3,10 @@ package com.backend.alquicancha.service.impl;
 
 import com.backend.alquicancha.dto.ProductoDto;
 import com.backend.alquicancha.entity.Categoria;
-import com.backend.alquicancha.entity.Especificacion;
 import com.backend.alquicancha.entity.Imagen;
 import com.backend.alquicancha.entity.Producto;
 import com.backend.alquicancha.exceptions.BadRequestException;
 import com.backend.alquicancha.exceptions.ResourceNotFoundException;
-import com.backend.alquicancha.repository.ICategoriaRepository;
-import com.backend.alquicancha.repository.IEspecificacionRepository;
 import com.backend.alquicancha.repository.IImagenRepository;
 import com.backend.alquicancha.repository.IProductoRepository;
 import com.backend.alquicancha.service.IProductoService;
@@ -35,16 +32,12 @@ public class ProductoService implements IProductoService {
     private final IProductoRepository productRepository;
     private final ObjectMapper mapper;
     private final IImagenRepository imagenRepository;
-    private final IEspecificacionRepository especificacionRepository;
-    private final ICategoriaRepository categoriaRepository;
 
     @Autowired
-    public ProductoService(IProductoRepository productRepository, ObjectMapper mapper, IImagenRepository imagenRepository, IEspecificacionRepository especificacionRepository, ICategoriaRepository categoriaRepository) {
+    public ProductoService(IProductoRepository productRepository, ObjectMapper mapper, IImagenRepository imagenRepository) {
         this.productRepository = productRepository;
         this.mapper = mapper;
         this.imagenRepository = imagenRepository;
-        this.especificacionRepository = especificacionRepository;
-        this.categoriaRepository = categoriaRepository;
     }
 
     @Override
@@ -143,19 +136,6 @@ public class ProductoService implements IProductoService {
         }
     }
 
-    @Override
-    public List<ProductoDto> filtrarPorCategoria(Long id) throws Exception {
-        Categoria categoria = categoriaRepository.findById(id).orElse(null);
-        if (categoria != null) {
-            List<ProductoDto> productos = productRepository.findByCategorias(categoria).stream().map(producto-> mapper.convertValue(producto, ProductoDto.class)).toList();
-            LOGGER.info("Se ha encontrado la categoria "+categoria + " en los productos " + productos);
-            return productos;
-        } else {
-            LOGGER.error("No se ha encontrado el producto con id " + id);
-            throw new ResourceNotFoundException("No se ha encontrado el producto con id " + id);
-        }
-    }
-
   /*  @Override
     public ProductDto actualizarProducto(@Valid ProductDto product, long id) throws ResourceNotFoundException {
         productoproductoActualizar = productRepository.findById(id).orElse(null);
@@ -224,44 +204,5 @@ public class ProductoService implements IProductoService {
         Imagen imagen = imagenRepository.findById(photoId).orElse(null);
         producto.removerImagen(imagen);
         productRepository.save(producto);
-    }
-
-    @Override
-    public void agregarEspecificacion(Long id, Especificacion especificacion) throws ResourceNotFoundException {
-        Producto producto = productRepository.findById(id).orElse(null);
-        if (producto != null) {
-            producto.agregarEspecificacion(especificacion);
-            productRepository.save(producto);
-            LOGGER.info("Se ha agregado la especificacion {} al producto con id {}", especificacion, id);
-        } else {
-            LOGGER.error("No se ha encontrado el producto con id " + id);
-            throw new ResourceNotFoundException("No se ha encontrado el producto con id " + id);
-        }
-    }
-
-    @Override
-    public void eliminarEspecificacion(Long id, Especificacion especificacion) throws ResourceNotFoundException {
-        Producto producto = productRepository.findById(id).orElse(null);
-        if (producto != null) {
-            producto.removerEspecificacion(especificacion);
-            productRepository.save(producto);
-            LOGGER.info("Se ha eliminado la especificacion {} al producto con id {}", especificacion, id);
-        } else {
-            LOGGER.error("No se ha encontrado el producto con id " + id);
-            throw new ResourceNotFoundException("No se ha encontrado el producto con id " + id);
-        }
-    }
-
-    @Override
-    public List<ProductoDto> filtrarPorEspecificacion(Long id) throws Exception {
-        Especificacion especificacion= especificacionRepository.findById(id).orElse(null);
-        if (especificacion != null) {
-            List<ProductoDto> productos = productRepository.findByEspecificaciones(especificacion).stream().map(productoo-> mapper.convertValue(productoo, ProductoDto.class)).toList();
-            LOGGER.info("Se ha encontrado la especificacion "+especificacion + " en los productos " + productos);
-            return productos;
-        } else {
-            LOGGER.error("No se ha encontrado el producto con id " + id);
-            throw new ResourceNotFoundException("No se ha encontrado el producto con id " + id);
-        }
     }
 }

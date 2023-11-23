@@ -31,22 +31,18 @@ public class Producto {
 
     @ManyToMany(mappedBy = "productos", fetch = FetchType.EAGER)
     private Set<Categoria> categorias;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "producto" , fetch = FetchType.EAGER)
     private Set<Imagen> imagenes = new HashSet<>();
-
-    @ManyToMany(mappedBy = "productos", fetch = FetchType.EAGER)
-    private Set<Especificacion> especificaciones;
 
     public Producto() {
     }
 
-    public Producto(String title, String description, double price,Set<Categoria> categorias ,Set<Imagen> imagenes, Set<Especificacion> especificaciones) {
+    public Producto(String title, String description, double price,Set<Categoria> categorias ,Set<Imagen> imagenes) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.categorias = categorias;
         this.imagenes = imagenes;
-        this.especificaciones = especificaciones;
     }
 
     public Producto(String title, String description, double price, Set<Imagen> imagenes) {
@@ -126,17 +122,6 @@ public class Producto {
         }
     }
 
-    public void agregarEspecificacion(Especificacion especificacion){
-        if (especificacion != null && !this.especificaciones.contains(especificacion)) {
-            this.especificaciones.add(especificacion);
-        }
-    }
-
-    public void removerEspecificacion(Especificacion especificacion){
-        if (especificacion != null) {
-            this.especificaciones.remove(especificacion);
-        }
-    }
     @Override
     public String toString() {
         return "\n ID: " + id + " - Producto: " + title + " " + description + " Precio: " + price + ".";

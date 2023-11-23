@@ -44,12 +44,5 @@ public class Especificacion {
         this.productos.add(producto);
     }
 
-    @Override
-    public String toString() {
-        return "Especificacion{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
 
-                '}';
-    }
 }

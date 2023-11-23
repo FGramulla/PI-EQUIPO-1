@@ -2,7 +2,6 @@ package com.backend.alquicancha.controller;
 
 import com.backend.alquicancha.dto.ProductoDto;
 import com.backend.alquicancha.entity.Categoria;
-import com.backend.alquicancha.entity.Especificacion;
 import com.backend.alquicancha.entity.Imagen;
 import com.backend.alquicancha.entity.Producto;
 import com.backend.alquicancha.exceptions.BadRequestException;
@@ -155,54 +154,32 @@ public class ProductoController {
         return ResponseEntity.ok("Photo uploaded successfully");
     }
 
-    @Operation(summary = "Obtener todas las fotos de un producto")
+    @Operation(summary = "Get all photos from a product")
     @GetMapping("/products/{productId}/photos")
     public ResponseEntity<Object> getPhotos(@PathVariable Long productId){
         Set<Imagen> photos = productoService.getPhotos(productId);
         return ResponseEntity.ok(photos);
     }
 
-    @Operation(summary = "Obtener la cantidad de fotos de un producto")
+    @Operation(summary = "Get the number of photos from a product")
     @GetMapping("/products/{productId}/photos/count")
     public ResponseEntity<Object> getPhotosCount(@PathVariable Long productId){
         int photosCount = productoService.getPhotosCount(productId);
         return ResponseEntity.ok(photosCount);
     }
 
-    @Operation(summary = "Eliminar una foto de un producto")
+    @Operation(summary = "Delete a photo from a product")
     @DeleteMapping("/products/{productId}/photos/{photoId}")
     public ResponseEntity<Object> deletePhoto(@PathVariable Long productId, @PathVariable Long photoId){
         productoService.deletePhoto(productId, photoId);
         return ResponseEntity.ok("Photo deleted");
     }
 
-    @Operation(summary = "Editar una foto de un producto")
+    @Operation(summary = "Edit photo from a product")
     @PutMapping("/products/{productId}/photos/{photoId}")
     public ResponseEntity<Object> editPhoto(@PathVariable Long productId, @PathVariable Long photoId, @RequestBody Imagen imagen){
         imagenService.editarImagen(productId, photoId, imagen);
         return ResponseEntity.ok("Photo edited");
-    }
-
-    //ESPECIFICACIONES
-
-    @Operation(summary = "Agregar una especificacion a un producto")
-    @PostMapping("/{id}/especificaciones/{especificacion}")
-    public ResponseEntity<Object> agregarEspecificacion(@PathVariable Long id, @RequestBody Especificacion especificacion) throws ResourceNotFoundException {
-        productoService.agregarEspecificacion(id, especificacion);
-        return ResponseEntity.ok("Especificacion agregada");
-    }
-
-    @Operation(summary = "Eliminar una especificacion de un producto")
-    @DeleteMapping("/{id}/especificaciones/{Especificacion}")
-    public ResponseEntity<Object> eliminarEspecificacion(@PathVariable Long id, @RequestBody Especificacion especificacion) throws ResourceNotFoundException {
-        productoService.eliminarEspecificacion(id, especificacion);
-        return ResponseEntity.ok("Especificacion eliminada");
-    }
-
-    @Operation(summary = "Filtrar productos por especificacion")
-    @GetMapping("/especificaciones/{idEspeficicacion}")
-    public ResponseEntity<Object> filtrarProductosPorEspecificacion(@PathVariable Long idEspeficicacion) throws Exception {
-        return ResponseEntity.ok(productoService.filtrarPorEspecificacion(idEspeficicacion));
     }
 
 }

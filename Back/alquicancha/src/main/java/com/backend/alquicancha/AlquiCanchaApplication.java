@@ -17,4 +17,4 @@ public class AlquiCanchaApplication {
         SpringApplication.run(AlquiCanchaApplication.class, args);
         LOGGER.info("Running ...");
     }
- }
+}
