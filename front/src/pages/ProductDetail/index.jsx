@@ -99,7 +99,9 @@ const ProductDetail = () => {
     return <p>Cargando...</p>;
   }
 
-  const { imagenes, titulo, precio, descripcion, categoria, detalles } =
+  
+
+  const { imagenes, titulo, precio, descripcion, categoria, detalles, fechaInicioReserva, fechaFinReserva} =
     product;
 
     console.log(open)
@@ -168,7 +170,9 @@ const ProductDetail = () => {
               
                 <div>
                   <Calendario />
-                  <ButtonReserva>Reservar</ButtonReserva>
+                  { logged && <ButtonReserva>Reservar</ButtonReserva>}
+                  
+                  
                 </div>
               
               

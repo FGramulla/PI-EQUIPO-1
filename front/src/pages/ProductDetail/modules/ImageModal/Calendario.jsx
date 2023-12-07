@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect} from 'react';
+import { useParams } from "react-router";
 import { DateForm, Label, Input, ButtonSearch} from './calendario.style';
 import { obtenerFechaActual } from '../../../../utils/get-fecha-actual';
+import { ContextGlobal } from '../../../../context/context';
+import { productoById } from '../../../../services/product/productFirebase';
 
 
-const Calendario = ({ onFechaSeleccionada }) => {
+const Calendario = () => {
+
+  const { id } = useParams();
+  
+
     const fechaActual = obtenerFechaActual();
     const fechaMinimaEnd = new Date();
     fechaMinimaEnd.setDate(fechaMinimaEnd.getDate() + 2);
@@ -12,6 +19,22 @@ const Calendario = ({ onFechaSeleccionada }) => {
     const [initDate, setInitDate] = useState(fechaActual);
     const [endDate, setEndDate] = useState("");
     const [endDateMin, setEndDateMin] = useState('');
+    const [disponibilidad, setDisponibilidad] = useState('');
+    const [product, setProduct] = useState(null);
+
+
+    useEffect(() => {
+      const getProducto = async () => {
+        const product = await productoById(id);
+        setProduct(product);
+      };
+
+      getProducto();
+      window.scrollTo(0, 0);
+    }, []);
+    
+    
+    // console.log(product)
 
     const handleInitChangeFecha = (e) => {
         const selectedDate = e.target.value;
@@ -30,28 +53,17 @@ const Calendario = ({ onFechaSeleccionada }) => {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(search);
         console.log("desde: ", initDate);
         console.log("hasta: ", endDate);
       };
 
-  // Lógica para manejar la selección de fechas
-
-  const handleFechaSeleccionada = (fecha) => {
-    // Lógica para determinar si es la fecha de entrada o salida
-    // y llamar a la función de devolución de llamada correspondiente
-    if (!fechaEntrada) {
-      setFechaEntrada(fecha);
-    } else {
-      setFechaSalida(fecha);
-      onFechaSeleccionada({ fechaEntrada, fechaSalida });
-    }
-  };
-
-  // Resto de la lógica del calendario
-
+      // const calcularDisponibilidad = (fechaActual, initDate, endDate) => {
+      //   return fechaActual >= product.disponibilidad.reserva.fechaInicio && fechaActual <= product.disponibilidad.reserva.fechaFin ? 'Disponible' : 'No Disponible';
+      // }
+      // console.log(calcularDisponibilidad)
   return (
     <form onSubmit={handleSubmit}>
+      <div><p>Disponibilidad: {disponibilidad}</p></div>
         <div style={{ display: "flex", gap: 5 }}>
           <DateForm>
             <Label htmlFor="start">Desde: </Label>
@@ -72,9 +84,6 @@ const Calendario = ({ onFechaSeleccionada }) => {
               onChange={handleEndChangeFecha}
               min={endDateMin}
             />
-          <ButtonSearch type="submit">
-            <p>🔍</p>
-          </ButtonSearch>
           </DateForm>
         </div>
     </form>
