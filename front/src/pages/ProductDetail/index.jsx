@@ -25,6 +25,7 @@ import Footer from "../../modules/Footer/index";
 import { productoById } from "../../services/product/productFirebase";
 import { ContextGlobal } from "../../context/context";
 import { getAtributoById } from "../../services/atributos/AtributosFirebase";
+import Calendario from "./modules/ImageModal/Calendario";
 
 const customStyles = {
   content: {
@@ -43,13 +44,13 @@ const customStyles = {
 const ProductDetail = () => {
   const { id } = useParams();
 
-  const { categorias } = useContext(ContextGlobal).contextValue;
+  const { categorias, logged } = useContext(ContextGlobal).contextValue;
 
   const [product, setProduct] = useState(null);
   const [imagePrincipal, setImagePrincipal] = useState(null);
   const [selected, setSelected] = useState(0);
   const [atributos, setAtributos] = useState({});
-
+  const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -90,12 +91,18 @@ const ProductDetail = () => {
     setModalOpen(false);
   };
 
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   if (!product) {
     return <p>Cargando...</p>;
   }
 
   const { imagenes, titulo, precio, descripcion, categoria, detalles } =
     product;
+
+    console.log(open)
 
   return (
     <>
@@ -156,7 +163,16 @@ const ProductDetail = () => {
                     </Included>
                 </Caracteristicas>
               ) : null}
-              <ButtonReserva>Reservar</ButtonReserva>
+                {/* <ButtonReserva>Reservar</ButtonReserva> */}
+
+              
+                <div>
+                  <Calendario />
+                  <ButtonReserva>Reservar</ButtonReserva>
+                </div>
+              
+              
+
             </ProductDetails>
           </Body>
         </CardDetail>
